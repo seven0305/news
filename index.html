@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>以为毕业是自由，结果先被房租困住所有</title>
+    <title>以为毕业是自由，结果先被租房困住所有</title>
     <style>
-        /* 样式重置与基础配置 */
+        /* 样式基础配置 */
         * {
             margin: 0;
             padding: 0;
@@ -39,7 +39,107 @@
         img:hover {
             transform: scale(1.02);
         }
+		
+/* ========== 首屏封面样式 ========== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    text-align: center;
+    color: #fff;
+    background-image: url("https://bexp.135editor.com/files/users/3/38882/202606/w7mAvmUu_8xVz.png?auth_key=1782662399-0-0-ea7b28fce5cb218f3bc032612dd64870");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* 视差滚动效果 */
+    scroll-snap-align: start;
+}
 
+/* 深色半透明蒙层*/
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(63,63,63,0.15), rgba(63,63,63,0.55));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    width: 100%;
+    /* 确保内容本身也完全居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-family: "楷体", "楷体_GB2312", SimKai, KaiTi, STKaiti;
+    font-weight: bold;
+    letter-spacing: 6px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    text-align: center;
+    /* 移除可能的偏移 */
+    margin-top: 0;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-family: "楷体", "楷体_GB2312", SimKai, KaiTi, STKaiti;
+    letter-spacing: 4px;
+    opacity: 0.95;
+    text-align: center;
+}
+
+/* 底部向下滚动提示 */
+.scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s infinite ease-in-out;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-family: 楷体, 楷体_GB2312, SimKai, KaiTi, STKaiti;
+}
+
+.scroll-down svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+    margin: 8px auto 0;
+    display: block;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-12px); }
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+    .hero-title {
+        font-size: 34px;
+        letter-spacing: 3px;
+    }
+    .hero-subtitle {
+        font-size: 16px;
+    }
+}
         /* 顶部导航栏 */
         .top-nav {
             position: fixed;
@@ -423,6 +523,25 @@
             .img-container { justify-content: center; }
             .content-text { font-size: 14px; line-height: 1.9; }
         }
+		/* 结尾全屏图片 上下留白+铺满宽度 */
+		.ending-full-img {
+		    width: 100%;
+		    height: auto;
+		    display: block;
+		    margin: 60px 0; /* 上下空白间距 */
+		}
+		
+		/* 首屏封面标题完全居中优化 */
+		.hero-content {
+		    width: 100%;
+		    text-align: center;
+		    /* 强制占满父容器高度并居中 */
+		    flex: 1;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -458,7 +577,20 @@
 
     <!-- 主内容 -->
     <div class="main-container">
-        <!-- 第1页：现状总览 -->
+        <!-- 首屏封面 -->
+        <section class="section-page hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">以为毕业是自由<br>结果先被租房困住所有</h1>
+                <p class="hero-subtitle">2026届毕业生租房现状观察</p>
+            </div>
+            <div class="scroll-down">
+                向下滑动查看
+                <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M512 704L192 384l45.227-45.227L512 613.547 786.773 338.773 832 384 512 704z"/>
+                </svg>
+            </div>
+        </section>
+		<!-- 第1页：现状总览 -->
         <section id="overview" class="section-page">
             <div style="border-top: 1px solid #3f3f3f; border-bottom: 1px solid #3f3f3f; text-align: right; padding: 8px 2%;">
                 <strong style="font-size: 15px; letter-spacing: 1.5px; font-family: 楷体, 楷体_GB2312, SimKai, KaiTi, STKaiti;">
@@ -685,18 +817,29 @@
                 <img src="https://bexp.135editor.com/files/users/3/38882/202606/z7cvGOrn_xrR2.png?auth_key=1782662399-0-0-7978828111fce6713562845775a9ee6c&" alt="青年租房生存状态" draggable="false"/>
             </div>
 
-            <p class="content-text">
-                回头看，这不是个体的困境，是<span class="highlight-text">结构性的问题</span>。年轻人的“省、忍、凑、搬”，是当代青年入城最真实的生存缩影。城市能够留住一份奋斗，却留不住一份安稳。
-            </p>
+           <!-- 增加空行 -->
+           <br><br>
+           <p class="content-text">
+           回头看，这不是个体的困境，是<span class="highlight-text">结构性的问题</span>。
+           </p>
+           <p class="content-text">
+           年轻人的“省、忍、凑、搬”，是当代青年入城最真实的生存缩影。
+           </p>
+           <p class="content-text">
+           城市能够留住一份奋斗，却留不住一份安稳。
+           </p>
+           
+           <p class="content-text">
+           但漂泊是过程，不是终点。
+           </p>
+           <p class="content-text">
+           租房只是人生的起点，在压力与挣扎中不断适应、成长，是每一代入城青年的必经之路。
+           </p>
+			<!-- 结尾全屏封面图 -->
+			<section class="ending-banner">
+			    <img src="https://bexp.135editor.com/files/users/3/38882/202606/neBAIX2N_ZQuU.png?auth_key=1782662399-0-0-b36aaa38f3fc8eee9b2a42e2ae63c4a7" alt="结尾配图" class="ending-full-img">
+			</section>
 
-            <p class="content-text">
-                但漂泊是过程，不是终点。租房只是人生的起点，在压力与挣扎中不断适应、成长，是每一代入城青年的必经之路。
-            </p>
-
-            <div class="end-sentence">
-                <span>但这条路，不该永远这么难走。</span>
-            </div>
-        </section>
     </div>
 
     <!-- 交互脚本 -->
