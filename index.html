@@ -25,6 +25,10 @@
             line-height: 1.8;
             color: #333;
             background-color: #f2e8d6;
+            background-image: url("http://image2.135editor.com/mmbiz/yqVAqoZvDibGUbLxicRITib8ibKdVibUtB43Bpo8tgUicCsUzIHgB0y0WRAvwq8xmIlN8xI4NnUTXXSFG1kzW7UKA15g/0?wx_fmt=jpeg");
+            background-size: auto;
+            background-repeat: repeat;
+            background-position: center center;
         }
 
         img {
@@ -318,9 +322,9 @@
             text-underline-offset: 3px;
         }
 
-        /* 单张居中图片 */
+        /* 单张居中图片 - 统一尺寸 */
         .single-img {
-            max-width: 480px;
+            max-width: 520px;
             width: 100%;
             margin: 0 auto;
             transition: transform 0.3s ease;
@@ -331,14 +335,14 @@
             height: auto;
         }
 
-        /* 卡片图 */
+        /* 卡片图 - 统一尺寸 */
         .card-img {
             background-color: #ffffff;
             box-shadow: #ebebeb 1px 1px 4px, #ebebeb -1px -1px 4px;
             padding: 15px;
             max-width: 520px;
-            margin: 0 auto;
             width: 100%;
+            margin: 0 auto;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
@@ -352,7 +356,7 @@
             display: block;
         }
 
-        /* 左图右文字组件 */
+        /* 左图右文字组件 - 统一图片尺寸且最大化 */
         .img-text-group {
             margin: 0 auto;
             display: flex;
@@ -360,7 +364,7 @@
             align-items: center;
             gap: 12px;
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             transition: transform 0.3s ease;
         }
 
@@ -369,20 +373,20 @@
         }
 
         .img-container {
-            width: 45%;
+            width: 48%;
             display: flex;
             justify-content: flex-end;
         }
 
         .img-container img {
             width: 100% !important;
-            max-width: 400px;
+            max-width: 450px;
             height: auto;
             display: block;
         }
 
         .text-container {
-            width: 50%;
+            width: 48%;
             display: flex;
             align-items: center;
         }
@@ -500,6 +504,60 @@
             visibility: visible;
         }
 
+        /* 特殊图片样式 - 保持原效果 */
+        .border-img {
+            border: 10px solid transparent;
+            border-image: url('https://mmbiz.qpic.cn/mmbiz_png/ianq03UUWGmJjUVsLldsQyMMJy7p0rviazYUENd7KNlSqnWRbBZeXtwfAgyBwj9xVd1Rx1oypdUB26Su9f5sFPOg/0?wx_fmt=png') 30 fill stretch;
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .shadow-img {
+            box-shadow: #979899 -3px -3px 8px;
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .border-shadow-img {
+            border: 1px solid #979899;
+            padding: 5px;
+            box-shadow: #979899 0 0 6px;
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .big-shadow-img {
+            box-shadow: #979899 0 0 10px;
+            border: 1px solid #979899;
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 结尾全屏图片 上下留白+铺满宽度 */
+        .ending-full-img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 60px auto; /* 上下空白间距 + 水平居中 */
+        }
+
+        /* 首屏封面标题完全居中优化 */
+        .hero-content {
+            width: 100%;
+            text-align: center;
+            /* 强制占满父容器高度并居中 */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* PC大屏适配 */
         @media screen and (min-width: 1200px) {
             .main-container { padding: 0; }
@@ -508,9 +566,10 @@
             .section-title span { font-size: 22px; }
             .title-icon { width: 32px; height: 32px; }
             .content-text { font-size: 16px; line-height: 2.2; }
-            .single-img { max-width: 520px; }
-            .img-container img { max-width: 440px; }
+            .single-img, .card-img, .border-img, .shadow-img, .border-shadow-img, .big-shadow-img { max-width: 580px; }
+            .img-container img { max-width: 480px; }
             .text-wrap { font-size: 15px; padding: 18px 15px; }
+            .img-text-group { max-width: 1000px; }
         }
 
         /* 移动端适配 */
@@ -522,25 +581,8 @@
             .img-container, .text-container { width: 100%; }
             .img-container { justify-content: center; }
             .content-text { font-size: 14px; line-height: 1.9; }
-        }
-		/* 结尾全屏图片 上下留白+铺满宽度 */
-		.ending-full-img {
-		    width: 100%;
-		    height: auto;
-		    display: block;
-		    margin: 60px 0; /* 上下空白间距 */
-		}
-		
-		/* 首屏封面标题完全居中优化 */
-		.hero-content {
-		    width: 100%;
-		    text-align: center;
-		    /* 强制占满父容器高度并居中 */
-		    flex: 1;
-		    display: flex;
-		    flex-direction: column;
-		    justify-content: center;
-		    align-items: center;
+            .single-img, .card-img, .border-img, .shadow-img, .border-shadow-img, .big-shadow-img { max-width: 100%; }
+            .img-container img { max-width: 100%; }
         }
     </style>
 </head>
@@ -590,6 +632,7 @@
                 </svg>
             </div>
         </section>
+
 		<!-- 第1页：现状总览 -->
         <section id="overview" class="section-page">
             <div style="border-top: 1px solid #3f3f3f; border-bottom: 1px solid #3f3f3f; text-align: right; padding: 8px 2%;">
@@ -639,7 +682,7 @@
                 这<strong>1270</strong>万人中，相当一部分涌入一线和新一线城市。目前，<strong>18</strong>至<strong>27</strong>岁青年已占据租房市场主力，占比超过<strong>62.83</strong>%。四大一线城市租房人口近<strong>4000</strong>万人，占城市总人口比重接近<strong>50</strong>%。
             </p>
 
-            <div class="single-img" style="border: 10px solid transparent; border-image: url('https://mmbiz.qpic.cn/mmbiz_png/ianq03UUWGmJjUVsLldsQyMMJy7p0rviazYUENd7KNlSqnWRbBZeXtwfAgyBwj9xVd1Rx1oypdUB26Su9f5sFPOg/0?wx_fmt=png') 30 fill stretch;">
+            <div class="border-img">
                 <img src="https://bexp.135editor.com/files/users/3/38882/202606/JILBLXtj_XIBN.png?auth_key=1782662399-0-0-8cc0b06b865727eae74e858cb1be305b" alt="一线城市租房人口" draggable="false"/>
             </div>
             
@@ -650,6 +693,17 @@
                 <div class="text-container">
                     <div class="text-wrap">
                         全国住房租赁市场规模从<strong>2023</strong>年的<strong>1.7</strong>万亿预计增长至<strong>2026</strong>年的<strong>1.8</strong>万亿。
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-text-group">
+                <div class="img-container">
+                    <img src="https://bexp.135editor.com/files/users/3/38882/202606/cfmQvZBY_Mxgf.png?auth_key=1782662399-0-0-ed246b01d639caeb1c4d36ed44c166cd&" alt="长期租住意愿" draggable="false"/>
+                </div>
+                <div class="text-container">
+                    <div class="text-wrap">
+                        超半数租客可接受5年以上租房生活，近20%愿意接受10年及以上长期租住。
                     </div>
                 </div>
             </div>
@@ -682,9 +736,19 @@
             <p class="content-text">
                 而毕业生心向往之的<span class="underline-text">一线城市，租金遥遥领先</span>。上海<strong>101.4</strong>元/㎡/月、北京<strong>97.2</strong>元/㎡/月、深圳<strong>92.6</strong>元/㎡/月。广州已降至<strong>59.97</strong>元，杭州<strong>57.57</strong>元。而武汉、成都等新一线城市仅为<strong>37</strong>元左右，城市能级之间的租金差距最高超过<strong>3</strong>倍。
             </p>
-				<div class="single-img">
-                <img src="https://bexp.135editor.com/files/users/3/38882/202606/4vDRwyta_GS7I.png?auth_key=1782662399-0-0-5a9aafaaea203ed39da2610b63952bef" alt="城市租金收入比" style="box-shadow: #979899 -3px -3px 8px;" draggable="false"/>
+
+            <div class="card-img">
+                <img src="https://bexp.135editor.com/files/users/3/38882/202606/w4pBUk7Y_b6N6.jpg?auth_key=1782662399-0-0-67e0192d9a3f2371af0bf4c3ec282f26&x-bce-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_934%2Ch_605" alt="城市租金对比" draggable="false"/>
             </div>
+
+            <p class="content-text">
+                行业普遍将租金收入比<strong>&nbsp;30%&nbsp;</strong>划定为<span class="highlight-text">“幸福分割线”</span>——超过这一比例，生活质量将明显下降。而50座重点城市监测数据显示，<span class="underline-text">多个城市大幅突破红线</span>。一线城市应届生因薪资水平偏低，实际租金收入比普遍高于城市均值，生活空间被严重挤压。
+            </p>
+
+            <div class="shadow-img">
+                <img src="https://bexp.135editor.com/files/users/3/38882/202606/4vDRwyta_GS7I.png?auth_key=1782662399-0-0-5a9aafaaea203ed39da2610b63952bef" alt="城市租金收入比" draggable="false"/>
+            </div>
+
             <div class="img-text-group">
                 <div class="img-container">
                     <img src="https://bexp.135editor.com/files/users/3/38882/202606/xDIPppWm_5UFM.png?auth_key=1782662399-0-0-61cb04d889517a86b16a316707119f0d&" alt="租金预算分布" draggable="false"/>
@@ -695,7 +759,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
         <!-- 第4页：居住品质 -->
@@ -722,13 +785,17 @@
                 在此情境下，<strong>35.8</strong>%的应届生<span class="underline-text">首次租房选择合租</span>。但合租带来的矛盾，又是另一种触目惊心。
             </p>
 
-            <div class="single-img">
-                <img src="https://bexp.135editor.com/files/users/3/38882/202606/S2m6KD45_AZJd.gif?auth_key=1782662399-0-0-133d0088d8289c7f38426ac951ddb957" alt="合租痛点TOP" style="border: 1px solid #979899; padding: 5px; box-shadow: #979899 0 0 6px;" draggable="false"/>
+            <div class="border-shadow-img">
+                <img src="https://bexp.135editor.com/files/users/3/38882/202606/S2m6KD45_AZJd.gif?auth_key=1782662399-0-0-133d0088d8289c7f38426ac951ddb957" alt="合租痛点TOP" draggable="false"/>
             </div>
 
             <p class="content-text">
-                还有另一种迫不得已的生存方式——<span class="underline-text">用时间换空间</span>。跨城通勤更为极端也更为普遍，燕郊往返北京、昆山往返上海，日均通勤总时长达<strong>2.5</strong>至<strong>3</strong>小时。
+                还有另一种迫不得已的生存方式——<span class="underline-text">用时间换空间</span>。跨城通勤更为极端也更为普遍，燕郊往返北京、昆山往返上海，日均通勤总时长达<strong>2.5</strong>至<strong>3</strong>小时，每年相当于在通勤路上度过<strong>52</strong>个整天。
             </p>
+
+            <div class="card-img">
+                <img src="https://bexp.135editor.com/files/users/3/38882/202606/e5R25YDA_IafS.jpg?auth_key=1782662399-0-0-ac4bbddd25d9cbbe4a8efa2fd33fe802" alt="跨城通勤" draggable="false"/>
+            </div>
 
             <div class="img-text-group">
                 <div class="img-container">
@@ -740,6 +807,21 @@
                     </div>
                 </div>
             </div>
+
+            <div class="img-text-group">
+                <div class="img-container">
+                    <img src="https://bexp.135editor.com/files/users/3/38882/202606/aMpjQpFT_d3LL.jpg?auth_key=1782662399-0-0-40bdb1743baed308ed2313459665926c&" alt="频繁搬家" draggable="false"/>
+                </div>
+                <div class="text-container">
+                    <div class="text-wrap">
+                        频繁搬家亦是常态。
+                    </div>
+                </div>
+            </div>
+
+            <p class="content-text">
+                <span class="highlight-text">租房不只是花钱，更是一种持续消耗精力与情绪的生存方式。</span>
+            </p>
         </section>
 
         <!-- 第5页：漂泊感 -->
@@ -754,9 +836,22 @@
                 </svg>
             </div>
 
-            <p class="content-text">
-                有房会更有安全感吗？现实往往是，租房的不确定性让“家”成了一个随时可能被收回的概念。每换一次房，围绕居住建立起来的生活秩序就会被推倒重建。
-            </p>
+            <div style="max-width: 90%; margin: 0 auto; padding: 20px 0;">
+                <div style="background-color: #ecf3ff; padding: 6px; border-radius: 8px 8px 8px 0; margin-bottom: 20px;">
+                    <div style="padding: 15px 10px; background-color: #fffffe; border-radius: 8px;">
+                        <p style="text-align: justify; line-height: 1.75em; letter-spacing: 1.5px; font-size: 14px; color: #333; font-family: 楷体, 楷体_GB2312, SimKai, KaiTi, STKaiti;">
+                            有房会更有安全感吗？
+                        </p>
+                    </div>
+                </div>
+                <div style="background-color: #ecf3ff; padding: 6px; border-radius: 8px 8px 0 8px; margin-left: auto; max-width: 95%;">
+                    <div style="padding: 15px 10px; background-color: #fffffe; border-radius: 8px;">
+                        <p style="text-align: justify; line-height: 1.75em; letter-spacing: 1.5px; font-size: 14px; color: #333; font-family: 楷体, 楷体_GB2312, SimKai, KaiTi, STKaiti;">
+                            现实往往是，租房的不确定性让“家”成了一个随时可能被收回的概念。每换一次房，围绕居住建立起来的生活秩序就会被推倒重建。
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             <div class="img-text-group">
                 <div class="img-container">
@@ -773,12 +868,8 @@
                 而当每月一半工资流向房租，人的选择也会受限：不敢轻易换工作、不敢换城市、不敢尝试不确定的职业路径。
             </p>
 
-            <div class="single-img">
-                <img src="https://bexp.135editor.com/files/users/3/38882/202606/hQa8YYIY_vA4R.jpg?auth_key=1782662399-0-0-900f97f76583a38e7a192c0d5f9d9b41" alt="租房压力下的选择" style="box-shadow: #979899 0 0 10px; border: 1px solid #979899;" draggable="false"/>
-            </div>
-
-            <div class="end-sentence">
-                <span>租房不只是花钱，更是一种持续消耗精力与情绪的生存方式。</span>
+            <div class="big-shadow-img">
+                <img src="https://bexp.135editor.com/files/users/3/38882/202606/hQa8YYIY_vA4R.jpg?auth_key=1782662399-0-0-900f97f76583a38e7a192c0d5f9d9b41" alt="租房压力下的选择" draggable="false"/>
             </div>
         </section>
 
@@ -813,33 +904,36 @@
                 抑或是，酒店、旅居。
             </p>
 
-            <div class="card-img">
+            <div class="border-shadow-img">
                 <img src="https://bexp.135editor.com/files/users/3/38882/202606/z7cvGOrn_xrR2.png?auth_key=1782662399-0-0-7978828111fce6713562845775a9ee6c&" alt="青年租房生存状态" draggable="false"/>
             </div>
 
-           <!-- 增加空行 -->
-           <br><br>
-           <p class="content-text">
-           回头看，这不是个体的困境，是<span class="highlight-text">结构性的问题</span>。
-           </p>
-           <p class="content-text">
-           年轻人的“省、忍、凑、搬”，是当代青年入城最真实的生存缩影。
-           </p>
-           <p class="content-text">
-           城市能够留住一份奋斗，却留不住一份安稳。
-           </p>
-           
-           <p class="content-text">
-           但漂泊是过程，不是终点。
-           </p>
-           <p class="content-text">
-           租房只是人生的起点，在压力与挣扎中不断适应、成长，是每一代入城青年的必经之路。
-           </p>
-			<!-- 结尾全屏封面图 -->
-			<section class="ending-banner">
-			    <img src="https://bexp.135editor.com/files/users/3/38882/202606/neBAIX2N_ZQuU.png?auth_key=1782662399-0-0-b36aaa38f3fc8eee9b2a42e2ae63c4a7" alt="结尾配图" class="ending-full-img">
-			</section>
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="https://bcn.135editor.com/files/images/editor_styles/f2831004a1c03cd87d51e2e8145ffb3a.gif" alt="分隔装饰" style="width: 80px; height: auto;"/>
+            </div>
 
+            <p class="content-text">
+                回头看，这不是个体的困境，是<span class="highlight-text">结构性的问题</span>。
+            </p>
+            <p class="content-text">
+                租房压力不是简单的“太贵”，而是城市生活成本与应届生收入不匹配的结构性失衡。
+            </p>
+            <p class="content-text">
+                年轻人的“省、忍、凑、搬”，是当代青年入城最真实不过的生存缩影。
+            </p>
+            <p class="content-text">
+                城市能够留住一份奋斗，却留不住一份安稳。
+            </p>
+            <p class="content-text">
+                但漂泊是过程，不是终点。
+            </p>
+            <p class="content-text">
+                租房只是人生的起点，漂泊只是暂时的状态。在压力与挣扎中不断适应、成长，是每一代入城青年的必经之路。
+            </p>
+			
+			<!-- 结尾全屏封面图 -->
+			<img src="https://bexp.135editor.com/files/users/3/38882/202606/neBAIX2N_ZQuU.png?auth_key=1782662399-0-0-b36aaa38f3fc8eee9b2a42e2ae63c4a7" alt="结尾配图" class="ending-full-img">
+        </section>
     </div>
 
     <!-- 交互脚本 -->
